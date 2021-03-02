@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>JAM</title>
+<title> JAM </title>
 <Link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Jata_MalaysiaV2.svg/250px-Jata_MalaysiaV2.svg.png"/>
 <style>
 html,body {
@@ -41,6 +41,7 @@ p {
     }
 }
 </style>
+
 <script>
 var clock = new Vue({
     el: '#clock',
@@ -66,6 +67,21 @@ function zeroPadding(num, digit) {
     }
     return (zero + num).slice(-digit);
 }
+</script>
+<script>
+var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+function mischandler(){
+return false;
+}
+function mousehandler(e){
+var myevent = (isNS) ? e : event;
+var eventbutton = (isNS) ? myevent.which : myevent.button;
+if((eventbutton==2)||(eventbutton==3)) return false;
+}
+document.oncontextmenu = mischandler;
+document.onmousedown = mousehandler;
+document.onmouseup = mousehandler;
 </script>
 <body>
 <div id="clock">
